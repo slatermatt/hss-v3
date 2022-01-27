@@ -1,6 +1,8 @@
 <template>
-	<footer>
-		Site footer
+	<footer class="bg-brand-primary text-white">
+		<div class="container">
+			Site footer
+		</div>
 	</footer>
 </template>
 

@@ -4,7 +4,7 @@ export default {
 	target: 'static',
 
 	head: {
-		title: 'modern',
+		title: 'Harrogate Storage Solutions',
 		htmlAttrs: {
 			lang: 'en',
 		},
@@ -33,7 +33,12 @@ export default {
 	],
 
 	modules: [
+		'@nuxtjs/strapi',
 	],
+
+	strapi: {
+		url: 'http://localhost:1337',
+	},
 
 	// Build Configuration: https://go.nuxtjs.dev/config-build
 	build: {

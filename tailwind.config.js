@@ -6,7 +6,16 @@ module.exports = {
 		'./pages/**/*.vue',
 	],
 	theme: {
+		container: {
+			center: true,
+			padding: {
+				DEFAULT: '1rem',
+			},
+		},
 		colors: {
+			transparent: 'transparent',
+			current: 'currentColor',
+			inherit: 'inherit',
 			brand: {
 				primary: '#2b5542',
 				secondary: '#23382e',
