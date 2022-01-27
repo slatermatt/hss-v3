@@ -13,7 +13,7 @@
 </template>
 
 <script>
-	import sprite from '@/img/sprite.svg';
+	import sprite from '@/assets/img/sprite.svg';
 
 	export default {
 		props: {
