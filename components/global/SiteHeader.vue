@@ -9,7 +9,7 @@
 				]"
 			>
 				<placeholder class="aspect-w-[426] aspect-h-[112]">
-					<img :src="$props.logo" alt="Harrogate Storage Solutions">
+					<img :src="$props.logo" :alt="$props.name">
 				</placeholder>
 			</nuxt-link>
 
@@ -92,6 +92,11 @@
 			logo: {
 				type: String,
 				default: Logo,
+			},
+
+			name: {
+				type: String,
+				required: true,
 			},
 
 			links: {

@@ -1,6 +1,7 @@
 <template>
 	<div class="flex flex-col min-h-screen bg-white text-gray">
 		<site-header
+			:name="cName"
 			:links="cLinks"
 			:locations="cLocations"
 		/>
@@ -9,13 +10,19 @@
 			<Nuxt />
 		</main>
 
-		<site-footer />
+		<site-footer
+			:name="cName"
+			:links="cLinks"
+			:socials="cSocials"
+		/>
 	</div>
 </template>
 
 <script>
 	import SiteHeader from '@/components/global/SiteHeader';
 	import SiteFooter from '@/components/global/SiteFooter';
+
+	const name = 'Harrogate Storage Solutions';
 
 	const links = [
 		{
@@ -81,6 +88,10 @@
 		},
 
 		computed: {
+			cName() {
+				return name;
+			},
+
 			cLinks() {
 				return links;
 			},
