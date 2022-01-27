@@ -38,7 +38,7 @@ export default {
 	],
 
 	strapi: {
-		url: 'http://localhost:1337',
+		url: process.env.STRAPI_URL,
 	},
 
 	// Build Configuration: https://go.nuxtjs.dev/config-build
