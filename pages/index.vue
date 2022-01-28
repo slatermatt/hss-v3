@@ -8,7 +8,7 @@
 			}"
 		/>
 
-		<builder
+		<block-builder
 			v-if="$data.Blocks"
 			:components="$data.Blocks"
 		/>
@@ -17,11 +17,11 @@
 
 <script>
 	const qs = require('qs');
-	import Builder from '@/components/blocks/Builder';
+	import BlockBuilder from '@/components/blocks/BlockBuilder';
 
 	export default {
 		components: {
-			Builder,
+			BlockBuilder,
 		},
 
 		async asyncData({ $strapi }) {
