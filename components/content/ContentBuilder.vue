@@ -13,11 +13,13 @@
 <script>
 	import Heading from './Heading';
 	import Paragraph from './Paragraph';
+	import Media from './Media';
 
 	export default {
 		components: {
 			Heading,
 			Paragraph,
+			Media,
 		},
 
 		props: {
