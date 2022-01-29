@@ -1,0 +1,66 @@
+<template>
+	<div>
+		<intro
+			v-if="$data.Intro"
+			v-bind="$data.Intro"
+		/>
+
+		<pre
+			v-if="$data.Sizes && $data.Sizes.length"
+			v-text="$data.Sizes"
+		/>
+
+		<block-builder
+			v-if="$data.Blocks && $data.Blocks.length"
+			:components="$data.Blocks"
+		/>
+
+		<contact-promo
+			v-if="$data.ContactPromo"
+			v-bind="$data.ContactPromo"
+		/>
+	</div>
+</template>
+
+<script>
+	const qs = require('qs');
+
+	import Intro from '@/components/blocks/Intro';
+	import BlockBuilder from '@/components/blocks/BlockBuilder';
+	import ContactPromo from '@/components/blocks/ContactPromo';
+
+	export default {
+		components: {
+			Intro,
+			BlockBuilder,
+			ContactPromo,
+		},
+
+		async asyncData({ $strapi }) {
+			const query = qs.stringify({
+				populate: {
+					Intro: {
+						populate: '*',
+					},
+					Sizes: {
+						populate: '*',
+					},
+					Blocks: {
+						populate: '*',
+					},
+					ContactPromo: {
+						populate: '*',
+					},
+				},
+			}, {
+				encodeValuesOnly: true,
+			});
+
+			const { data } = await $strapi.find(`api/size-estimator?${query}`);
+
+			return {
+				...data.attributes,
+			};
+		},
+	};
+</script>
