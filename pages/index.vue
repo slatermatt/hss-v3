@@ -9,7 +9,7 @@
 		/>
 
 		<block-builder
-			v-if="$data.Blocks"
+			v-if="$data.Blocks && $data.Blocks.length"
 			:components="$data.Blocks"
 		/>
 	</div>
