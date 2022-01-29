@@ -6,7 +6,7 @@
 			:locations="cLocations"
 		/>
 
-		<main class="flex-auto">
+		<main class="flex-auto overflow-scroll">
 			<Nuxt />
 		</main>
 

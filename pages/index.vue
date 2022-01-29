@@ -1,7 +1,6 @@
 <template>
 	<div>
 		<pre
-			class="border-4 border-[#0f0] overflow-scroll"
 			v-text="{
 				carousel: $data.Carousel,
 				cards: $data.Cards,

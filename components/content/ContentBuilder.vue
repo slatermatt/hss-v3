@@ -1,10 +1,9 @@
 <template>
-	<article class="prose border-4 border-[#f00]">
+	<article class="prose">
 		<component
 			:is="__component.split('.')[1]"
 			v-for="({ __component, ...value }, index) in $props.components"
 			:key="index"
-			class="border-4 border-[#00f] overflow-scroll"
 			v-bind="value"
 		/>
 	</article>
