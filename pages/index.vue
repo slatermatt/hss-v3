@@ -4,6 +4,12 @@
 			v-if="$data.Carousel"
 			:media="$data.Carousel.Media.data.attributes"
 			:list="$data.Carousel.List"
+			class="z-10"
+		/>
+
+		<cards
+			class="relative -mt-10 md:-mt-16 xl:-mt-20 z-20"
+			:items="$data.Cards"
 		/>
 
 		<pre
@@ -34,11 +40,13 @@
 	});
 
 	import Carousel from '@/components/blocks/Carousel';
+	import Cards from '@/components/blocks/Cards';
 	import BlockBuilder from '@/components/blocks/BlockBuilder';
 
 	export default {
 		components: {
 			Carousel,
+			Cards,
 			BlockBuilder,
 		},
 

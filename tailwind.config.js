@@ -24,6 +24,7 @@ module.exports = {
 			black: '#000000',
 			gray: '#444444',
 			white: '#ffffff',
+			focus: '#3b82f6',
 		},
 		extend: {},
 	},
