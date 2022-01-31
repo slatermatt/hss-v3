@@ -4,6 +4,7 @@
 			:is="cIsVideo ? 'e-video' : 'e-img'"
 			:url="cUrl"
 			:alternative-text="$props.alternativeText"
+			v-bind="$attrs.options"
 		/>
 	</placeholder>
 </template>

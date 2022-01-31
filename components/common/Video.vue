@@ -2,7 +2,7 @@
 	<video
 		class="absolute inset-0 w-full h-full object-cover"
 		:src="$props.url"
-		controls
+		v-bind="$attrs"
 	/>
 </template>
 
