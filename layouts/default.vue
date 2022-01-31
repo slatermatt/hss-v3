@@ -1,16 +1,18 @@
 <template>
 	<div class="flex flex-col min-h-screen bg-white text-gray">
 		<site-header
+			class="z-50"
 			:name="cName"
 			:links="cLinks"
 			:locations="cLocations"
 		/>
 
-		<main class="flex-auto overflow-scroll">
+		<main class="flex-auto overflow-scroll z-40">
 			<Nuxt />
 		</main>
 
 		<site-footer
+			class="z-30"
 			:name="cName"
 			:links="cLinks"
 			:socials="cSocials"
