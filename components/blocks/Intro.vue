@@ -1,6 +1,6 @@
 <template>
 	<section>
-		<div class="container max-w-lg text-center py-20">
+		<div class="container max-w-sm text-center md:max-w-lg">
 			<h2
 				class="e-h1 text-brand-primary inline-block"
 				v-text="$props.Title"

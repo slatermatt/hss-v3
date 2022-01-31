@@ -15,6 +15,7 @@
 		<block-builder
 			v-if="$data.Blocks && $data.Blocks.length"
 			:components="$data.Blocks"
+			class="py-12 md:py-18 xl:py-24"
 		/>
 	</div>
 </template>
