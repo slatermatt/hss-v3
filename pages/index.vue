@@ -1,5 +1,11 @@
 <template>
 	<div>
+		<carousel
+			v-if="$data.Carousel"
+			:media="$data.Carousel.Media.data.attributes"
+			:list="$data.Carousel.List"
+		/>
+
 		<pre
 			v-text="$data"
 		/>
@@ -27,10 +33,12 @@
 		},
 	});
 
+	import Carousel from '@/components/blocks/Carousel';
 	import BlockBuilder from '@/components/blocks/BlockBuilder';
 
 	export default {
 		components: {
+			Carousel,
 			BlockBuilder,
 		},
 
