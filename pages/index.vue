@@ -12,10 +12,6 @@
 			:items="$data.Cards"
 		/>
 
-		<pre
-			v-text="$data"
-		/>
-
 		<block-builder
 			v-if="$data.Blocks && $data.Blocks.length"
 			:components="$data.Blocks"
