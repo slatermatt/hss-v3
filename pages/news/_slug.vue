@@ -25,10 +25,10 @@
 				},
 			});
 
-			const { data } = await $strapi.find(`api/articles?${query}`);
+			const article = await $strapi.find(`api/articles?${query}`);
 
 			return {
-				article: data[0],
+				article: article.data[0],
 			};
 		},
 	};

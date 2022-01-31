@@ -1,10 +1,7 @@
 <template>
 	<div>
 		<pre
-			v-text="{
-				carousel: $data.Carousel,
-				cards: $data.Cards,
-			}"
+			v-text="$data"
 		/>
 
 		<block-builder
@@ -16,6 +13,20 @@
 
 <script>
 	const qs = require('qs');
+	const query = qs.stringify({
+		populate: {
+			Carousel: {
+				populate: '*',
+			},
+			Cards: {
+				populate: '*',
+			},
+			Blocks: {
+				populate: '*',
+			},
+		},
+	});
+
 	import BlockBuilder from '@/components/blocks/BlockBuilder';
 
 	export default {
@@ -24,26 +35,10 @@
 		},
 
 		async asyncData({ $strapi }) {
-			const query = qs.stringify({
-				populate: {
-					Carousel: {
-						populate: '*',
-					},
-					Cards: {
-						populate: '*',
-					},
-					Blocks: {
-						populate: '*',
-					},
-				},
-			}, {
-				encodeValuesOnly: true,
-			});
-
-			const { data } = await $strapi.find(`api/homepage?${query}`);
+			const page = await $strapi.find(`api/homepage?${query}`);
 
 			return {
-				...data.attributes,
+				...page.data.attributes,
 			};
 		},
 	};

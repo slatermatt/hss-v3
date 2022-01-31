@@ -6,8 +6,8 @@
 		/>
 
 		<pre
-			v-if="$data.Testimonials && $data.Testimonials.length"
-			v-text="$data.Testimonials"
+			v-if="$data.testimonials && $data.testimonials.length"
+			v-text="$data.testimonials"
 		/>
 
 		<block-builder
@@ -24,6 +24,19 @@
 
 <script>
 	const qs = require('qs');
+	const query = qs.stringify({
+		populate: {
+			Intro: {
+				populate: '*',
+			},
+			Blocks: {
+				populate: '*',
+			},
+			ContactPromo: {
+				populate: '*',
+			},
+		},
+	});
 
 	import Intro from '@/components/blocks/Intro';
 	import BlockBuilder from '@/components/blocks/BlockBuilder';
@@ -37,28 +50,12 @@
 		},
 
 		async asyncData({ $strapi }) {
-			const query = qs.stringify({
-				populate: {
-					Intro: {
-						populate: '*',
-					},
-					Blocks: {
-						populate: '*',
-					},
-					ContactPromo: {
-						populate: '*',
-					},
-				},
-			}, {
-				encodeValuesOnly: true,
-			});
-
-			const { data } = await $strapi.find(`api/testimonials-page?${query}`);
+			const page = await $strapi.find(`api/testimonials-page?${query}`);
 			const testimonials = await $strapi.find('api/testimonials');
 
 			return {
-				...data.attributes,
-				Testimonials: testimonials.data,
+				...page.data.attributes,
+				testimonials: testimonials.data,
 			};
 		},
 	};

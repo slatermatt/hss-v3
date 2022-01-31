@@ -6,8 +6,8 @@
 		/>
 
 		<pre
-			v-if="$data.Articles && $data.Articles.length"
-			v-text="$data.Articles"
+			v-if="$data.articles && $data.articles.length"
+			v-text="$data.articles"
 		/>
 
 		<block-builder
@@ -24,6 +24,26 @@
 
 <script>
 	const qs = require('qs');
+	const query = qs.stringify({
+		populate: {
+			Intro: {
+				populate: '*',
+			},
+			Blocks: {
+				populate: '*',
+			},
+			ContactPromo: {
+				populate: '*',
+			},
+		},
+	});
+	const content = qs.stringify({
+		populate: {
+			Image: {
+				populate: '*',
+			},
+		},
+	});
 
 	import Intro from '@/components/blocks/Intro';
 	import BlockBuilder from '@/components/blocks/BlockBuilder';
@@ -37,36 +57,12 @@
 		},
 
 		async asyncData({ $strapi }) {
-			const query = qs.stringify({
-				populate: {
-					Intro: {
-						populate: '*',
-					},
-					Blocks: {
-						populate: '*',
-					},
-					ContactPromo: {
-						populate: '*',
-					},
-				},
-			}, {
-				encodeValuesOnly: true,
-			});
-
-			const content = qs.stringify({
-				populate: {
-					Content: {
-						populate: '*',
-					},
-				},
-			});
-
-			const { data } = await $strapi.find(`api/news-page?${query}`);
+			const page = await $strapi.find(`api/news-page?${query}`);
 			const articles = await $strapi.find(`api/articles?${content}`);
 
 			return {
-				...data.attributes,
-				Articles: articles.data,
+				...page.data.attributes,
+				articles: articles.data,
 			};
 		},
 	};

@@ -24,6 +24,22 @@
 
 <script>
 	const qs = require('qs');
+	const query = qs.stringify({
+		populate: {
+			Intro: {
+				populate: '*',
+			},
+			Content: {
+				populate: '*',
+			},
+			Blocks: {
+				populate: '*',
+			},
+			ContactPromo: {
+				populate: '*',
+			},
+		},
+	});
 
 	import Intro from '@/components/blocks/Intro';
 	import ContentBuilder from '@/components/content/ContentBuilder';
@@ -39,29 +55,10 @@
 		},
 
 		async asyncData({ $strapi }) {
-			const query = qs.stringify({
-				populate: {
-					Intro: {
-						populate: '*',
-					},
-					Content: {
-						populate: '*',
-					},
-					Blocks: {
-						populate: '*',
-					},
-					ContactPromo: {
-						populate: '*',
-					},
-				},
-			}, {
-				encodeValuesOnly: true,
-			});
-
-			const { data } = await $strapi.find(`api/about?${query}`);
+			const page = await $strapi.find(`api/about?${query}`);
 
 			return {
-				...data.attributes,
+				...page.data.attributes,
 			};
 		},
 	};
