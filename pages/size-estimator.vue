@@ -2,12 +2,14 @@
 	<div>
 		<intro
 			v-if="$data.Intro"
+			class="my-12 md:my-18 xl:my-24"
 			v-bind="$data.Intro"
 		/>
 
-		<pre
+		<size-guide
 			v-if="$data.Sizes && $data.Sizes.length"
-			v-text="$data.Sizes"
+			:sizes="$data.Sizes"
+			class="my-12 md:my-18 xl:my-24"
 		/>
 
 		<block-builder
@@ -42,12 +44,14 @@
 	});
 
 	import Intro from '@/components/blocks/Intro';
+	import SizeGuide from '@/components/blocks/SizeGuide';
 	import BlockBuilder from '@/components/blocks/BlockBuilder';
 	import ContactPromo from '@/components/blocks/ContactPromo';
 
 	export default {
 		components: {
 			Intro,
+			SizeGuide,
 			BlockBuilder,
 			ContactPromo,
 		},

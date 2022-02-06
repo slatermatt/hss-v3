@@ -7,9 +7,9 @@
 			$data.classList[$props.variant],
 			'inline-block px-8 py-4',
 			'focus:outline-none focus:ring focus:ring-focus',
-			'disabled:bg-grey-600 hover:no-underline',
+			'disabled:bg-gray/80 hover:no-underline',
 			{
-				'opacity-75 bg-grey-700 cursor-not-allowed hover:bg-grey-700': $props.disabled,
+				'opacity-75 bg-gray/80 cursor-not-allowed hover:bg-gray/80': $props.disabled,
 			},
 		]"
 		:disabled="$props.disabled"
@@ -49,7 +49,7 @@
 					],
 					secondary: [
 						'bg-white text-brand-primary',
-						'hover:bg-grey/80',
+						'hover:bg-gray/80',
 					],
 				},
 			};
