@@ -115,5 +115,11 @@
 				navOpen: false,
 			};
 		},
+
+		watch: {
+			$route() {
+				if (this.$data.navOpen) this.$data.navOpen = false;
+			},
+		},
 	};
 </script>
