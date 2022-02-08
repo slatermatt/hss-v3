@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.e-h1 {
+	@apply font-bold text-2xl md:text-3xl xl:text-4xl;
+}
+
+.e-h2 {
+	@apply font-bold text-xl md:text-2xl xl:text-3xl;
+}
+
+a {
+	@apply
+		no-underline hover:underline
+		focus:outline-none focus:ring focus:ring-focus;
+}
