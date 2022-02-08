@@ -59,6 +59,8 @@
 			cUrlIsAbsolute() {
 				const { url } = this.$props;
 
+				if (!url) return null;
+
 				return (url.indexOf('://') > 0 || url.indexOf('//') === 0);
 			},
 

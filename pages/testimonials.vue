@@ -6,9 +6,8 @@
 			v-bind="$data.Intro"
 		/>
 
-		<pre
-			v-if="$data.testimonials && $data.testimonials.length"
-			v-text="$data.testimonials"
+		<testimonials
+			class="my-12 md:my-18 xl:my-24"
 		/>
 
 		<block-builder
@@ -40,23 +39,23 @@
 	});
 
 	import Intro from '@/components/blocks/Intro';
+	import Testimonials from '@/components/blocks/Testimonials'
 	import BlockBuilder from '@/components/blocks/BlockBuilder';
 	import ContactPromo from '@/components/blocks/ContactPromo';
 
 	export default {
 		components: {
 			Intro,
+			Testimonials,
 			BlockBuilder,
 			ContactPromo,
 		},
 
 		async asyncData({ $strapi }) {
 			const page = await $strapi.find(`api/testimonials-page?${query}`);
-			const testimonials = await $strapi.find('api/testimonials');
 
 			return {
 				...page.data.attributes,
-				testimonials: testimonials.data,
 			};
 		},
 	};
