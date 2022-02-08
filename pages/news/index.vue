@@ -6,9 +6,8 @@
 			v-bind="$data.Intro"
 		/>
 
-		<pre
-			v-if="$data.articles && $data.articles.length"
-			v-text="$data.articles"
+		<news
+			class="my-12 md:my-18 xl:my-24"
 		/>
 
 		<block-builder
@@ -38,32 +37,25 @@
 			},
 		},
 	});
-	const content = qs.stringify({
-		populate: {
-			Image: {
-				populate: '*',
-			},
-		},
-	});
 
 	import Intro from '@/components/blocks/Intro';
+	import News from '@/components/blocks/News';
 	import BlockBuilder from '@/components/blocks/BlockBuilder';
 	import ContactPromo from '@/components/blocks/ContactPromo';
 
 	export default {
 		components: {
 			Intro,
+			News,
 			BlockBuilder,
 			ContactPromo,
 		},
 
 		async asyncData({ $strapi }) {
 			const page = await $strapi.find(`api/news-page?${query}`);
-			const articles = await $strapi.find(`api/articles?${content}`);
 
 			return {
 				...page.data.attributes,
-				articles: articles.data,
 			};
 		},
 	};

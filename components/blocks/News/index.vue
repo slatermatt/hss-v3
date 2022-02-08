@@ -1,14 +1,14 @@
 <template>
 	<section>
 		<div
-			v-if="$data.testimonials && $data.testimonials.length"
+			v-if="$data.articles && $data.articles.length"
 			class="container flex flex-col gap-y-12"
 		>
-			<testimonial
-				v-for="({ attributes, id }, index) in $data.testimonials"
+			<e-article
+				v-for="({ attributes, id }, index) in $data.articles"
 				:key="id"
 				:class="[
-					'w-full mx-auto max-w-xl md:max-w-2xl',
+					'w-full mx-auto max-w-sm md:max-w-2xl xl:max-w-3xl',
 					{
 						'border-t border-gray/10 pt-12': index,
 					},
@@ -44,16 +44,16 @@
 <script>
 	const qs = require('qs');
 
-	import Testimonial from './Testimonial';
+	import Article from './Article';
 
 	export default {
 		components: {
-			Testimonial,
+			EArticle: Article,
 		},
 
 		data() {
 			return {
-				testimonials: null,
+				articles: null,
 				page: null,
 				pageCount: null,
 			};
@@ -72,13 +72,14 @@
 			page: {
 				handler(v) {
 					const query = qs.stringify({
+						populate: '*',
 						pagination: {
 							page: v ? v : 1,
 							pageSize: 5,
 						},
 					});
 
-					this.getTestimonials(query);
+					this.getArticles(query);
 
 					window.scrollTo({
 						top: 0,
@@ -91,10 +92,10 @@
 		},
 
 		methods: {
-			async getTestimonials(query) {
-				const { data, meta } = await this.$strapi.find(`api/testimonials?${query}`);
+			async getArticles(query) {
+				const { data, meta } = await this.$strapi.find(`api/articles?${query}`);
 
-				this.$data.testimonials = data;
+				this.$data.articles = data;
 				this.$data.page = meta.pagination.page;
 				this.$data.pageCount = meta.pagination.pageCount;
 			},
