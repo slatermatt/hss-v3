@@ -73,6 +73,7 @@
 				handler(v) {
 					const query = qs.stringify({
 						populate: '*',
+						sort: ['createdAt:desc', 'Title'],
 						pagination: {
 							page: v ? v : 1,
 							pageSize: 5,
