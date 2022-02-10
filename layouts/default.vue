@@ -1,5 +1,11 @@
 <template>
-	<div class="flex flex-col min-h-screen bg-white text-gray">
+	<div
+		:class="[
+			'flex flex-col min-h-screen',
+			'bg-white text-gray',
+			'text-base',
+		]"
+	>
 		<site-header
 			class="z-50"
 			:name="cName"
