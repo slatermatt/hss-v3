@@ -25,7 +25,9 @@
 
 				<e-button
 					title="Directions"
-					:href="attributes.directions"
+					:url="attributes.Directions"
+					class="hover:!bg-white/90"
+					target="_blank"
 					variant="secondary"
 				/>
 			</section>
