@@ -4,6 +4,7 @@ module.exports = {
 		'./components/**/*.{vue,js}',
 		'./layouts/**/*.vue',
 		'./pages/**/*.vue',
+		'./assets/**/*.js',
 	],
 	theme: {
 		container: {
@@ -24,6 +25,7 @@ module.exports = {
 			black: '#000000',
 			gray: '#444444',
 			white: '#ffffff',
+			error: '#ff0000',
 			focus: '#3b82f6',
 		},
 		extend: {},

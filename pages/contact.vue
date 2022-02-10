@@ -12,6 +12,11 @@
 		/>
 
 		<placeholder />
+
+		<contact-form
+			:intro="$data.Form"
+			class="my-12 md:my-18 xl:my-24"
+		/>
 	</div>
 </template>
 
@@ -21,11 +26,13 @@
 
 	import Intro from '@/components/blocks/Intro';
 	import Locations from '@/components/blocks/Locations';
+	import ContactForm from '@/components/blocks/ContactForm';
 
 	export default {
 		components: {
 			Intro,
 			Locations,
+			ContactForm,
 		},
 
 		async asyncData({ $strapi }) {

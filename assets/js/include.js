@@ -1,5 +1,7 @@
 import Vue from 'vue';
 
+import './formulate';
+
 import Icon from '@/components/common/Icon';
 import Placeholder from '@/components/common/Placeholder';
 import EButton from '@/components/common/Button';
