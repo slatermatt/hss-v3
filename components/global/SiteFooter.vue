@@ -7,6 +7,11 @@
 					:key="index"
 				>
 					<a :href="social.url">
+						<span
+							class="sr-only"
+							v-text="social.title"
+						/>
+
 						<icon
 							:name="social.icon"
 							size="w-10 h-10"
