@@ -10,7 +10,6 @@
 			class="z-50"
 			:name="cName"
 			:links="cLinks"
-			:locations="cLocations"
 		/>
 
 		<main class="flex-auto overflow-scroll z-40">
@@ -59,23 +58,6 @@
 		}
 	];
 
-	const locations = [
-		{
-			title: 'The Quarry Killinghall',
-			number: {
-				formatted: '01423536220',
-				text: '01423 536220'
-			}
-		},
-		{
-			title: 'Mornington Terrace',
-			number: {
-				formatted: '01423560947',
-				text: '01423 560947',
-			},
-		},
-	];
-
 	const socials = [
 		{
 			icon: 'facebook',
@@ -102,10 +84,6 @@
 
 			cLinks() {
 				return links;
-			},
-
-			cLocations() {
-				return locations;
 			},
 
 			cSocials() {

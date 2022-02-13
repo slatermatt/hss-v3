@@ -28,6 +28,7 @@
 			</nav>
 
 			<div
+				v-if="$data.locations"
 				:class="[
 					'hidden relative py-6 ml-8 -mt-8 -mb-12',
 					'bg-white shadow-md',
@@ -35,7 +36,7 @@
 				]"
 			>
 				<div
-					v-for="(location, index) in $props.locations"
+					v-for="({ attributes }, index) in $data.locations.data"
 					:key="index"
 					:class="[
 						'flex flex-col justify-center items-center px-10',
@@ -46,13 +47,13 @@
 				>
 					<p
 						class="text-gray text-sm"
-						v-text="location.title"
+						v-text="attributes.Name"
 					/>
 
 					<a
 						class="text-xl text-brand-primary font-bold"
-						:href="`tel:${location.number.formatted}`"
-						v-text="location.number.text"
+						:href="`tel:${attributes.Phone}`"
+						v-text="attributes.Phone"
 					/>
 				</div>
 			</div>
@@ -103,15 +104,11 @@
 				type: Array,
 				required: true,
 			},
-
-			locations: {
-				type: Array,
-				required: true,
-			},
 		},
 
 		data() {
 			return {
+				locations: null,
 				navOpen: false,
 			};
 		},
@@ -120,6 +117,10 @@
 			$route() {
 				if (this.$data.navOpen) this.$data.navOpen = false;
 			},
+		},
+
+		async mounted() {
+			this.$data.locations = await this.$strapi.find('api/locations');
 		},
 	};
 </script>

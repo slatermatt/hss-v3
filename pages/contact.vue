@@ -11,8 +11,6 @@
 			:locations="$data.locations"
 		/>
 
-		<placeholder />
-
 		<contact-form
 			:intro="$data.Form"
 			class="my-12 md:my-18 xl:my-24"
