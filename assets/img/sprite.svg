@@ -71,6 +71,25 @@
 		<path d="M40.9 18H36C36 17.4 35.6 17 35 17C34.4 17 34 17.4 34 18H26C26 17.4 25.6 17 25 17C24.4 17 24 17.4 24 18H19.1C18.5 18 18 18.5 18 19.1V39.9C18 40.5 18.5 41 19.1 41H40.9C41.5 41 42 40.5 42 39.9V19.1C42 18.5 41.5 18 40.9 18ZM40 39H20V25H40V39ZM40 24H20V20H24V21C24 21.6 24.4 22 25 22C25.6 22 26 21.6 26 21V20H34V21C34 21.6 34.4 22 35 22C35.6 22 36 21.6 36 21V20H40V24Z" fill="#2B5542"/>
 	</symbol>
 	<symbol
+		id="home-alt"
+		viewBox="0 0 52 60"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M26 0L52 15V45L26 60L0 45V15L26 0Z" fill="#2B5542"/>
+		<path d="M22.8 41V31.4706H29.2V41H37.2V28.2941H42L26 14L10 28.2941H14.8V41H22.8Z" fill="white"/>
+	</symbol>
+	<symbol
+		id="garage-alt"
+		viewBox="0 0 60 60"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M30.0193 0L56.0193 15V45L30.0193 60L4.01929 45V15L30.0193 0Z" fill="#2B5542"/>
+
+		<path d="M41.2 28.2941H46L30 14L14 28.2941H18.8V41H22V37.8235H38V41H41.2V28.2941ZM22.336 25.1176H37.664L38 25.4194V28.2941H22V25.4194L22.336 25.1176ZM34.112 21.9412H25.888L30 18.2724L34.112 21.9412ZM22 34.6471V31.4706H38V34.6471H22Z" fill="white"/>
+	</symbol>
+	<symbol
 		id="boxes-alt"
 		viewBox="0 0 60 60"
 		fill="none"

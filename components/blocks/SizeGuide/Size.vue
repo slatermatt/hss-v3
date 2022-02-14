@@ -1,10 +1,8 @@
 <template>
 	<div class="flex">
 		<div class="hidden md:flex items-center flex-col">
-			<!-- TODO: Amend to Icon -->
-
 			<icon
-				:name="String($props.Title).toLowerCase()"
+				:name="$props.Icon"
 				size="w-20 h-20"
 			/>
 
