@@ -65,6 +65,11 @@
 				]"
 				@click="$data.navOpen = !$data.navOpen"
 			>
+				<span
+					class="sr-only"
+					v-text="$data.navOpen ? 'Close menu' : 'Open menu'"
+				/>
+
 				<icon
 					size="w-8 h-8"
 					:name="$data.navOpen ? 'close' : 'burger'"
