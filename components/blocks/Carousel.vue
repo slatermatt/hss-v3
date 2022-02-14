@@ -2,7 +2,7 @@
 	<section
 		:class="[
 			'relative bg-gray overflow-hidden',
-			'xl:max-w-[1440px] xl:mx-auto',
+			'xl:max-w-[1600px] xl:mx-auto',
 		]"
 	>
 		<media
