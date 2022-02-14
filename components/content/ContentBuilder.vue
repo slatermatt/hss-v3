@@ -1,5 +1,5 @@
 <template>
-	<article class="prose">
+	<article class="prose container max-w-2xl">
 		<component
 			:is="__component.split('.')[1]"
 			v-for="({ __component, ...value }, index) in $props.components"

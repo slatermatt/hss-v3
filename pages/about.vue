@@ -8,11 +8,13 @@
 
 		<content-builder
 			v-if="$data.Content && $data.Content.length"
+			class="my-12 md:my-18 xl:my-24"
 			:components="$data.Content"
 		/>
 
 		<block-builder
 			v-if="$data.Blocks && $data.Blocks.length"
+			class="my-12 md:my-18 xl:my-24"
 			:components="$data.Blocks"
 		/>
 

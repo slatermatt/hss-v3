@@ -1,7 +1,16 @@
 <template>
-	<pre v-text="$attrs" />
+	<h3
+		v-text="$props.Text"
+	/>
 </template>
 
 <script>
-	export default {};
+	export default {
+		props: {
+			Text: {
+				type: String,
+				required: true,
+			},
+		},
+	};
 </script>
