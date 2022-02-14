@@ -37,8 +37,12 @@ export default {
 		'@nuxtjs/strapi',
 	],
 
+	env: {
+		mapsKey: process.env.MAPS_KEY,
+	},
+
 	strapi: {
-		url: process.env.STRAPI_URL,
+		url: process.env.STRAPI_URL || 'http://localhost:1337/',
 	},
 
 	// Build Configuration: https://go.nuxtjs.dev/config-build

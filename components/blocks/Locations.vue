@@ -68,7 +68,7 @@
 				const mode = 'place';
 
 				const params = new URLSearchParams({
-					key: 'AIzaSyBXE4UkMXrxWSrkeQohkWdqm_657dx-lN8',
+					key: process.env.mapsKey,
 					q: `place_id:${this.$data.query}`,
 				});
 
