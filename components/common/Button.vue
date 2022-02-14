@@ -49,7 +49,7 @@
 					],
 					secondary: [
 						'bg-white text-brand-primary',
-						'hover:bg-gray/80',
+						'hover:bg-white/90',
 					],
 				},
 			};

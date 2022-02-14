@@ -31,7 +31,6 @@
 
 				<e-button
 					title="Show on map"
-					class="hover:!bg-white/90"
 					variant="secondary"
 					@click.native="$data.query = attributes.PlaceID"
 				/>
