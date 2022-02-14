@@ -25,7 +25,7 @@
 					]"
 				>
 					<h2
-						class="text-2xl"
+						class="e-h3"
 						v-text="feature.Title"
 					/>
 

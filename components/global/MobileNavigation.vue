@@ -18,21 +18,24 @@
 			</li>
 		</ul>
 
-		<div class="container flex flex-col gap-y-4 bg-off-white py-5">
+		<div
+			v-if="$props.locations"
+			class="container flex flex-col gap-y-4 bg-off-white py-5"
+		>
 			<div
-				v-for="(location, index) in $props.locations"
+				v-for="({ attributes }, index) in $props.locations.data"
 				:key="index"
 				class="flex flex-col gap-y-0.5 justify-center"
 			>
 				<p
 					class="text-gray text-sm"
-					v-text="location.title"
+					v-text="attributes.Name"
 				/>
 
 				<a
 					class="text-brand-primary text-xl font-bold"
-					:href="`tel:${location.number.formatted}`"
-					v-text="location.number.text"
+					:href="`tel:${attributes.Phone}`"
+					v-text="attributes.Phone"
 				/>
 			</div>
 		</div>
@@ -49,7 +52,7 @@
 
 			locations: {
 				type: Array,
-				required: true,
+				default: null,
 			},
 		},
 	};

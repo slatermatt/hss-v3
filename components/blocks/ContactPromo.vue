@@ -2,7 +2,7 @@
 	<section class="bg-off-white">
 		<div class="container max-w-xl mx-auto text-center py-20">
 			<h2
-				class="text-brand-green text-4xl inline-block font-bold leading-snug"
+				class="e-h1 text-brand-green inline-block"
 				v-text="$props.Title"
 			/>
 

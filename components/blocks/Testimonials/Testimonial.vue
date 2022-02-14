@@ -1,7 +1,7 @@
 <template>
 	<article>
 		<h2
-			class="text-2xl text-brand-primary font-bold"
+			class="e-h3 text-brand-primary font-bold"
 			v-text="$props.Title"
 		/>
 

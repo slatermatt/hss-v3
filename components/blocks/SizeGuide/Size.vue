@@ -12,7 +12,7 @@
 		</div>
 
 		<div class="w-full text-center md:text-left md:ml-10">
-			<h1
+			<h2
 				class="inline-block text-xl font-bold text-brand-primary leading-normal"
 				v-text="$props.Title"
 			/>

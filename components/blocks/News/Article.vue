@@ -13,7 +13,7 @@
 
 			<div class="flex flex-col gap-y-4 md:col-span-3 xl:col-span-4">
 				<h2
-					class="text-2xl text-brand-primary font-bold"
+					class="e-h3 text-brand-primary"
 					v-text="$props.Title"
 				/>
 

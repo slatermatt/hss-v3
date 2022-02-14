@@ -72,10 +72,18 @@
 			</button>
 		</div>
 
+		<span
+			v-if="$data.navOpen"
+			:class="[
+				'absolute inset-0 top-full w-full h-screen bg-black/30',
+			]"
+			@click="$data.navOpen = false"
+		/>
+
 		<mobile-navigation
 			v-if="$data.navOpen"
 			:links="$props.links"
-			:locations="$props.locations"
+			:locations="$data.locations"
 		/>
 	</header>
 </template>
