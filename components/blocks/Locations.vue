@@ -1,48 +1,55 @@
 <template>
-	<div class="bg-brand-primary">
-		<div
-			:class="[
-				'container flex-wrap gap-10',
-				'flex items-center justify-center',
-				'py-12 md:py-18 xl:py-24',
-			]"
-		>
-			<section
-				v-for="{ id, attributes } in $props.locations"
-				:key="id"
-				class="flex items-center flex-col gap-y-2.5 text-center md:w-1/2 md:max-w-xs"
+	<div>
+		<div class="bg-brand-primary">
+			<div
+				:class="[
+					'container flex-wrap gap-10',
+					'flex items-center justify-center',
+					'py-12 md:py-18 xl:py-24',
+				]"
 			>
-				<h2
-					class="text-white"
-					v-text="attributes.Name"
-				/>
+				<section
+					v-for="{ id, attributes } in $props.locations"
+					:key="id"
+					class="flex items-center flex-col gap-y-2.5 text-center md:w-1/2 md:max-w-xs"
+				>
+					<h2
+						class="text-white"
+						v-text="attributes.Name"
+					/>
 
-				<a
-					:href="`tel:${attributes.Phone}`"
-					class="text-white e-h2"
-					v-text="attributes.Phone"
-				/>
+					<a
+						:href="`tel:${attributes.Phone}`"
+						class="text-white e-h2"
+						v-text="attributes.Phone"
+					/>
 
-				<p class="flex flex-col gap-1 text-white text-sm md:text-base">
-					<span v-text="attributes.Address" />
+					<p class="flex flex-col gap-1 text-white text-sm md:text-base">
+						<span v-text="attributes.Address" />
 
-					<span v-text="attributes.Postcode" />
-				</p>
+						<span v-text="attributes.Postcode" />
+					</p>
 
-				<e-button
-					title="Show on map"
-					variant="secondary"
-					@click.native="$data.query = attributes.PlaceID"
-				/>
-			</section>
+					<e-button
+						title="Show on map"
+						variant="secondary"
+						@click.native="updateMap(attributes.PlaceID)"
+					/>
+				</section>
+			</div>
 		</div>
 
-		<placeholder class="bg-brand-secondary">
-			<iframe
-				loading="lazy"
-				:src="cSrc">
-			</iframe>
-		</placeholder>
+		<div
+			ref="map"
+			class="container"
+		>
+			<placeholder class="bg-brand-secondary">
+				<iframe
+					loading="lazy"
+					:src="cSrc">
+				</iframe>
+			</placeholder>
+		</div>
 	</div>
 </template>
 
@@ -72,6 +79,16 @@
 				});
 
 				return `${base}${mode}?${params}`;
+			},
+		},
+
+		methods: {
+			updateMap(placeId) {
+				this.$data.query = placeId;
+
+				this.$refs.map.scrollIntoView({
+					behavior: 'smooth',
+				});
 			},
 		},
 	};
