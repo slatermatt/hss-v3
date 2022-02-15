@@ -9,7 +9,7 @@
 				]"
 			>
 				<section
-					v-for="{ id, attributes } in $props.locations"
+					v-for="({ id, attributes }, index) in $props.locations"
 					:key="id"
 					class="flex items-center flex-col gap-y-2.5 text-center md:w-1/2 md:max-w-xs"
 				>
@@ -33,7 +33,7 @@
 					<e-button
 						title="Show on map"
 						variant="secondary"
-						@click.native="updateMap(attributes.PlaceID)"
+						@click.native="updateMap(index)"
 					/>
 				</section>
 			</div>
@@ -41,8 +41,18 @@
 
 		<div
 			ref="map"
-			class="container"
+			class="relative container px-0"
 		>
+			<span
+				:class="[
+					'e-h4',
+					'absolute top-0 left-1/2 z-10',
+					'px-4 py-2 shadow-md -translate-x-1/2',
+					'bg-off-white text-brand-primary',
+				]"
+				v-text="cActive.Name"
+			/>
+
 			<placeholder class="bg-brand-secondary">
 				<iframe
 					loading="lazy"
@@ -64,18 +74,26 @@
 
 		data() {
 			return {
-				query: this.$props.locations[0].attributes.PlaceID,
+				index: 0,
 			};
 		},
 
 		computed: {
+			cActive() {
+				return this.$props.locations[this.$data.index].attributes;
+			},
+
+			cPlaceId() {
+				return this.cActive.PlaceID;
+			},
+
 			cSrc() {
 				const base = 'https://www.google.com/maps/embed/v1/';
 				const mode = 'place';
 
 				const params = new URLSearchParams({
 					key: process.env.mapsKey,
-					q: `place_id:${this.$data.query}`,
+					q: `place_id:${this.cPlaceId}`,
 				});
 
 				return `${base}${mode}?${params}`;
@@ -83,10 +101,11 @@
 		},
 
 		methods: {
-			updateMap(placeId) {
-				this.$data.query = placeId;
+			updateMap(index) {
+				this.$data.index = index;
 
 				this.$refs.map.scrollIntoView({
+					block: 'center',
 					behavior: 'smooth',
 				});
 			},
