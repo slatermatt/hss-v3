@@ -1,19 +1,20 @@
 <template>
-	<section>
+	<section class="max-w-xl mx-auto overflow-hidden px-4 md:max-w-screen-xl lg:px-12">
 		<div
 			:class="[
-				'grid gap-4 container',
-				'md:grid-cols-2 md:items-center md:gap-8',
-				'lg:grid-cols-5 lg:gap-16',
+				'grid gap-4',
+				'md:grid-cols-12 md:items-center md:gap-8',
+				'lg:gap-16',
 			]"
 		>
 			<div
 				:class="[
 					'relative',
-					'lg:col-span-3',
-					$props.Flip
-						? 'lg:mt-20'
-						: 'lg:mb-20',
+					'md:col-span-6',
+					'lg:my-12',
+					{
+						'md:col-start-7': $props.Flip,
+					},
 				]"
 			>
 				<media
@@ -34,14 +35,11 @@
 
 			<div
 				:class="[
-					'space-y-4 text-center max-w-sm mx-auto',
-					'md:mx-0 lg:col-span-2',
+					'space-y-4 text-center',
+					'md:mx-0 md:col-span-5',
 					$props.Flip
-						? 'md:text-right md:ml-auto'
+						? 'md:text-right md:col-start-2 md:row-start-1'
 						: 'md:text-left',
-					{
-						'md:row-start-1': $props.Flip,
-					},
 				]"
 			>
 				<h2
