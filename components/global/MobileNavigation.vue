@@ -51,7 +51,7 @@
 			},
 
 			locations: {
-				type: Array,
+				type: Object,
 				default: null,
 			},
 		},
