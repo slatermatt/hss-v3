@@ -13,6 +13,7 @@
 						'border-t border-gray/10 pt-12': index,
 					},
 				]"
+				:has-page="(attributes.Content && (attributes.Content.length !== 0))"
 				v-bind="attributes"
 			/>
 
