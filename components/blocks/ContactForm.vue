@@ -7,6 +7,7 @@
 
 		<div class="container max-w-md">
 			<formulate-form
+				method="POST"
 				:action="$props.action"
 				class="flex flex-col gap-y-5"
 				:class="{

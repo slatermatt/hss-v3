@@ -38,6 +38,9 @@ export default {
 				const response = await fetch(this.$props.action, {
 					method: 'POST',
 					body,
+					headers: {
+						'Accept': 'application/json',
+					},
 				});
 
 				if (!response.ok) {
