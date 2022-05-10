@@ -5,7 +5,7 @@
 			v-bind="$props.intro"
 		/>
 
-		<div class="container max-w-md">
+		<div class="container max-w-md hidden">
 			<formulate-form
 				method="POST"
 				:action="$props.action"
