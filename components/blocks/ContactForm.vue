@@ -59,7 +59,7 @@
 
 			action: {
 				type: String,
-				default: 'https://formspree.io/f/xrgrldkw',
+				default: 'https://formspree.io/f/moqrylpv',
 			},
 
 			schema: {
