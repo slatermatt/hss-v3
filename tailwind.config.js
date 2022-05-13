@@ -28,7 +28,11 @@ module.exports = {
 			error: '#ff0000',
 			focus: '#3b82f6',
 		},
-		extend: {},
+		extend: {
+			spacing: {
+				em: '1em',
+			},
+		},
 	},
 	variants: {},
 	plugins: [

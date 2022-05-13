@@ -56,17 +56,13 @@ export default {
 		},
 
 		async onSubmitSuccess(response) {
-			const { redirect, response: resp } = await response.json();
+			const { response: resp } = await response.json();
 
-			if (redirect) {
-				window.location = redirect;
-			} else {
-				this.$data.isError = false;
-				this.$data.form = {};
+			this.$data.isError = false;
+			this.$data.form = {};
 
-				if (resp) {
-					this.$data.response = resp;
-				}
+			if (resp) {
+				this.$data.response = resp;
 			}
 		},
 

@@ -7,6 +7,7 @@
 
 		<div class="container max-w-md">
 			<formulate-form
+				v-if="!$data.response"
 				method="POST"
 				:action="$props.action"
 				class="flex flex-col gap-y-5"
@@ -19,6 +20,21 @@
 				v-model="$data.form"
 				@submit="onSubmit"
 			/>
+
+			<div
+				v-else
+				ref="confirmOverlay"
+				class="flex flex-col gap-y-5 items-center bg-gray/10 py-10"
+			>
+				<icon
+					name="check"
+					size="w-20 h-20"
+				/>
+
+				<h2 class="e-h2">Thanks!</h2>
+
+				<p>We'll get back to you as soon as possible.</p>
+			</div>
 		</div>
 	</div>
 </template>
@@ -98,10 +114,6 @@
 						});
 					});
 				}
-			},
-
-			onSubmitSuccess() {
-				this.$data.response = this.$props.success;
 			},
 		},
 	};
