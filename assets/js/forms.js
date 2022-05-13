@@ -55,15 +55,10 @@ export default {
 			}
 		},
 
-		async onSubmitSuccess(response) {
-			const { response: resp } = await response.json();
-
+		onSubmitSuccess() {
 			this.$data.isError = false;
 			this.$data.form = {};
-
-			if (resp) {
-				this.$data.response = resp;
-			}
+			this.$data.response = true;
 		},
 
 		async onSubmitFailure(response) {
