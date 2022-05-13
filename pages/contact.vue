@@ -6,14 +6,14 @@
 			v-bind="$data.Intro"
 		/>
 
-		<locations
-			class="my-12 md:my-18 xl:my-24"
-			:locations="$data.locations"
-		/>
-
 		<contact-form
 			:intro="$data.Form"
 			class="my-12 md:my-18 xl:my-24"
+		/>
+
+		<locations
+			class="my-12 md:my-18 xl:my-24"
+			:locations="$data.locations"
 		/>
 	</div>
 </template>
