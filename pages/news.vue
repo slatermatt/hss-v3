@@ -23,21 +23,6 @@
 </template>
 
 <script>
-	const qs = require('qs');
-	const query = qs.stringify({
-		populate: {
-			Intro: {
-				populate: '*',
-			},
-			Blocks: {
-				populate: '*',
-			},
-			ContactPromo: {
-				populate: '*',
-			},
-		},
-	});
-
 	import Intro from '@/components/blocks/Intro';
 	import News from '@/components/blocks/News';
 	import BlockBuilder from '@/components/blocks/BlockBuilder';
@@ -51,11 +36,11 @@
 			ContactPromo,
 		},
 
-		async asyncData({ $strapi }) {
-			const page = await $strapi.find(`api/news-page?${query}`);
-
+		data() {
 			return {
-				...page.data.attributes,
+				Blocks: [],
+				Intro: {"id":4,"Title":"News","Content":null},
+				ContactPromo: {"id":5,"Title":"Get in touch","Content":"Lorem ipsum dolor sit amet","Cta":{"id":5,"Title":"Contact us","Url":"/contact"}},
 			};
 		},
 	};

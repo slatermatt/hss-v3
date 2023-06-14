@@ -23,21 +23,6 @@
 </template>
 
 <script>
-	const qs = require('qs');
-	const query = qs.stringify({
-		populate: {
-			Intro: {
-				populate: '*',
-			},
-			Blocks: {
-				populate: '*',
-			},
-			ContactPromo: {
-				populate: '*',
-			},
-		},
-	});
-
 	import Intro from '@/components/blocks/Intro';
 	import Testimonials from '@/components/blocks/Testimonials'
 	import BlockBuilder from '@/components/blocks/BlockBuilder';
@@ -51,11 +36,11 @@
 			ContactPromo,
 		},
 
-		async asyncData({ $strapi }) {
-			const page = await $strapi.find(`api/testimonials-page?${query}`);
-
+		data() {
 			return {
-				...page.data.attributes,
+				Blocks: [],
+				ContactPromo: {"id":1,"Title":"Get in touch","Content":"Fill in your details on our contact page and one of the team will get back to you as quickly as possible with a quote.","Cta":{"id":1,"Title":"Contact us","Url":"/contact"}},
+				Intro: {"id":1,"Title":"Testimonials","Content":"Here's everything our customers have to say about us."},
 			};
 		},
 	};

@@ -2,7 +2,7 @@
 	<placeholder :ratio-class="$props.ratioClass">
 		<component
 			:is="cIsVideo ? 'e-video' : 'e-img'"
-			:url="cUrl"
+			:url="url"
 			:alternative-text="$props.alternativeText"
 			v-bind="$attrs.options"
 		/>
@@ -46,13 +46,6 @@
 		computed: {
 			cIsVideo() {
 				return this.$props.mime === 'video/mp4';
-			},
-
-			cUrl() {
-				const domain = this.$strapi.options.url;
-				const output = new URL(this.$props.url, domain);
-
-				return output;
 			},
 		},
 	};

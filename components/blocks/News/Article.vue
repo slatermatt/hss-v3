@@ -14,13 +14,6 @@
 			/>
 
 			<p v-html="$props.Description" />
-
-			<nuxt-link
-				v-if="$props.hasPage"
-				:to="`/news/${$props.Slug}`"
-				class="inline-block text-brand-primary font-bold underline"
-				v-text="`Find out more`"
-			/>
 		</div>
 	</article>
 </template>
